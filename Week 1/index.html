@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Javascript Form</h2>
+    <form>
+    <p>Name: <input type="text" name="name" id="input_name"></p>
+    
+    <p>Favorite Color: <input type="text" name="color" id="input_color"></p>
+    <p><input type="button" value="Submit" onclick="showInput();"></p>
+    </form>
+    <h3>Hello, my name is <span id="name"></span>. <br>My favorite color is <span id="color"></span>.</h3>
+    </body>
+    <script language="JavaScript">
+        function showInput() {
+            document.getElementById('name').innerHTML =
+                        document.getElementById("input_name").value;
+            document.getElementById('color').innerHTML =
+                                    document.getElementById("input_color").value;
+        }
+      </script>  
+</html>
