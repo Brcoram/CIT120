@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Tip Calculator</title>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <form>
+      <p>Amount: $<input id="amount" type="number"></p>
+      <button id="my-button">Calculate</button>
+      <p>Total plus tax: <span id="total"></span></p>
+      <p>Tip: <span id="tip"></span></p>
+    </form>
+<script>
+document.getElementById('my-button').addEventListener('click', calc);
+
+function calc(e) {
+  e.preventDefault();
+  var input = document.getElementById('amount');
+  var bill = parseFloat(input.value);
+  var total = (bill * 0.07) + bill;
+  var tip = total * 0.05;
+
+  document.getElementById("tip").textContent = "$"+(tip).toFixed(2);
+  document.getElementById("total").textContent = "$"+(total).toFixed(2);
+}
+</script>
+</body>
+</html>
