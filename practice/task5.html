@@ -3,19 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta
     <title>Title</title>
-    <script src="task1.js" defer></script>
-    <script src="task2.js" defer></script>
+
+
 </head>
-<body>
-<h2>Task 1</h2>
-<div id = "task1"></div>
-<h2>Task 2</h2>
-<div id = "task2"></div>
-<h2>Task 3</h2>
-<div id = "task3"></div>
-<h2>Task 6</h2>
-<div id = "task6"></div>
+<body onload="printLines();">
+<h2>Task 5</h2>
+<div id="log"></p>
 </body>
+
+<script>
+function printLines() {
+let professor = prompt("Who are the lines for?");
+let lineToWrite = prompt("What is the line?");
+let lineBreak = lineToWrite + "\n";
+let numLines = prompt("How many lines?");
+var lines = parseInt(numLines);
+
+(function () {
+    var old = console.log;
+    var logger = document.getElementById('log');
+    console.log = function () {
+      for (var i = 0; i < arguments.length; i++) {
+        logger.innerHTML += arguments[i] + '\n';
+      }
+    }
+})();
+
+console.log("Professor " +professor+ " says... \n");
+console.log(lineBreak.repeat(lines));
+}
+</script>
 </html>
