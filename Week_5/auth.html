@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Login Page</title>
+</head>
+<body style="font: 14px Arial, sans-serif; text-align: center;">
+
+<h1>Login</h1>
+<div style="border: 1px solid #666; padding: 15px; width: 400px; background-color: #eee; text-align: left; margin-left: auto; margin-right: auto;">
+<p>Username</p>
+<input type="text" id="username" name="username">
+<p>Password</p>
+<input type="password" id="password" name="password">
+<p><button onclick="login();">Login</button></p>
+</div>
+</body>
+<script>
+function login(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "admin" && password == "secret"){
+alert ("WELCOME, ADMIN!");
+}
+else {
+alert ("BAD LOGIN CREDENTIALS");
+}
+};
+</script>
+</html>
