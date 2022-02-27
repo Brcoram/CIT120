@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Good Bones Script</title>
+
+</head>
+<body>
+<h2>Home Renovation Cost</h2>
+
+<p>Paint cost: <div id="paint"></div></p>
+<p>Floor Coverings: <div id="floors"></div></p>
+<p>Furniture: <div id="furniture"></div></p>
+
+<h3>Total: <div id="totalCost"></div></h3>
+
+
+<script>
+function renovate() {
+let paint = prompt("Enter the cost for the paint and supplies :");
+paint = parseFloat(paint);
+if (paint > 100){
+  paint *= 1.1
+};
+var paintValue = document.getElementById("paint");
+paintValue.innerHTML = paint.toFixed(2);
+
+let floors = prompt("Enter the cost for the flooring:");
+floors = parseFloat(floors);
+if (floors > 500){
+  floors *= 1.15
+};
+var floorValue = document.getElementById("floors");
+floorValue.innerHTML = floors.toFixed(2);
+
+let furniture = prompt("Enter the cost for the furniture:");
+furniture = parseFloat(floors);
+if (furniture > 500){
+  furniture *= 1.1
+};
+var furnitureValue = document.getElementById("furniture");
+furnitureValue.innerHTML = furniture.toFixed(2);
+
+() => {totalCost = paint + floors + furniture};
+let totalCost = paint + floors + furniture;
+var totalCostValue = document.getElementById("totalCost");
+totalCostValue.innerHTML = totalCost.toFixed(2);
+};
+function displayResult(totalCostValue) {
+  document.getElementById('totalCost').innerHTML = totalCostValue;
+};
+let totalCost = (paint,floors,furniture) => {
+  return paint + floors + furniture;
+  displayResult(totalCost);
+};
+renovate();
+</script>
+</body>
+</html>
