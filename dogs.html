@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Pet Finder</title>
+<style>
+th {text-align: left;}
+td,th {padding: 5px;}
+</style>
+</head>
+<body>
+    <h1>Find my new pet</h1>
+    <p>Enter minimum age:</p>
+    <p><input type="number" name="minAge" id="minAge" size="5">
+<button onclick="findDogs();">Find</button></p>
+
+<p id="results">
+</p>
+
+<script>
+let allDogs = [{
+dogName : "Abby",
+breed : "SharPei",
+age: 7,
+},
+{
+dogName : "Akino",
+breed : "Husky",
+age: 5,
+},
+{
+dogName : "Allie",
+breed : "Pit Bull Mix",
+age: 6,
+},
+{
+dogName : "Aveda",
+breed : "Pit Bull Mix",
+age: 6,
+},
+{
+dogName : "Baby Boy",
+breed : "Pug",
+age: 4,
+},
+{
+dogName : "Bjorn",
+breed : "Pit Bull Mix",
+age: 1,
+},
+{
+dogName : "Bronson",
+breed : "Terrier",
+age: 6,
+},
+{
+dogName : "Clyde",
+breed : "Terrier",
+age: 1,
+},
+{
+dogName : "Hammer",
+breed : "German Shepherd",
+age: 12,
+},
+{
+dogName : "Maddy",
+breed : "Retriever",
+age: 7,
+}];
+
+function findDogs() {
+let minAge = document.getElementById("minAge").value;
+let selectedDogs = [];
+for (let i = 0; i < allDogs.length; i++) {
+    if (allDogs[i].age >= minAge) {
+        selectedDogs.push(allDogs[i]);
+    }
+}
+//console.log(selectedDogs);
+var html = "<table border='1|1'><tr><th>Name</th><th>Breed</th><th>Age</th></tr>";
+for (var i = 0; i < selectedDogs.length; i++) {
+    html+="<tr>";
+    html+="<td>"+selectedDogs[i].dogName+"</td>";
+    html+="<td>"+selectedDogs[i].breed+"</td>";
+    html+="<td>"+selectedDogs[i].age+"</td>";
+    html+="</tr>";
+}
+html+="</table>";
+document.getElementById("results").innerHTML = html;
+};
+</script>
+</body>
+</html>
