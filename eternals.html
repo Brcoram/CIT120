@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>The Eternals</title>
+<style>
+table {border: 1px solid #999;}
+th {text-align: left;}
+td,th {padding: 5px; font: 22px Arial; background-color: #eee;}
+</style>
+</head>
+<body>
+    <h1>Find the Eternals</h1>
+    <p>Select a skill:</p>
+    <p><select name="skills" id="skills">
+      <option></option>
+      <option value="transmutation">transmutation</option>
+      <option value="energy projection">energy projection</option>
+      <option value="telepathy">telepathy</option>
+      <option value="conjure weapons">conjure weapons</option>
+      <option value="healing">healing</option>
+      <option value="agility">agility</option>
+      <option value="teleportation">teleportation</option>
+      <option value="cosmic beams from eyes">cosmic beams from eyes</option>
+      <option value="enhanced senses">enhanced senses</option>
+      <option value="sword">sword</option>
+      <option value="flight">flight</option>
+      <option value="cosmic energy explosions">cosmic energy explosions</option>
+      <option value="speed">speed</option>
+      <option value="strength">strength</option>
+      <option value="stamina">stamina</option>
+    </select>
+<button onclick="findHeroes();">Find</button></p>
+
+<p id="results">
+</p>
+
+<script>
+let eternals = [{
+name : "Sersi",
+skill : "transmutation",
+skill2 : "energy projection",
+skill3 : "telepathy",
+},
+{
+name : "Thena",
+skill : "conjure weapons",
+skill2 : "healing",
+skill3 : "agility",
+},
+{
+name : "Ikaris",
+skill : "teleportation",
+skill2 : "cosmic beams from eyes",
+skill3 : "enhanced senses",
+},
+{
+name : "Kingo",
+skill : "sword",
+skill2 : "flight",
+skill3 : "cosmic energy explosions",
+},
+{
+name : "Makkari",
+skill : "speed",
+skill2 : "strength",
+skill3 : "stamina",
+}];
+
+function findHeroes() {
+  let selectedSkill = document.getElementById("skills").value;
+  let selectedEternals = [];
+  for (let i = 0; i < eternals.length; i++) {
+      if (eternals[i].skill == selectedSkill || eternals[i].skill2 == selectedSkill || eternals[i].skill3 == selectedSkill) {
+          selectedEternals.push(eternals[i]);
+      }
+  }
+  console.log(selectedEternals);
+  var html = "<table>";
+  for (var i = 0; i < selectedEternals.length; i++) {
+      html+="<tr>";
+      html+="<td><b>"+selectedEternals[i].name+"</b> is the member of the Eternals with the power of";
+      html+=" <i>"+document.getElementById("skills").value+"</i>.</td>";
+      html+="</tr>";
+  }
+  html+="</table>";
+  document.getElementById("results").innerHTML = html;
+  };
+</script>
+</body>
+</html>
